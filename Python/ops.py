@@ -25,6 +25,15 @@ class ops(Enum):
 	UTOPICUNICORN = ("Utopic Unicorn", 14.10, osFamily.osFamily.UBUNTU)
 	VIVIDVERVET = ("Vivid Veret", 15.04, osFamily.osFamily.UBUNTU)
 
+	# UBUNTU SERVER Family
+	PRECISEPANGOLINSERVER = ("Precise Pangolin", 12.0405, osFamily.osFamily.UBUNTUSERVER)
+	QUANTALQUETZALSERVER = ("Quantal Quetzal", 12.10, osFamily.osFamily.UBUNTUSERVER)
+	RAIRINGRINGTAILSERVER = ("Rairing Ringtail", 12.04, osFamily.osFamily.UBUNTUSERVER)
+	SAUCYSALAMANDERSERVER = ("Saucy Salamander", 13.04, osFamily.osFamily.UBUNTUSERVER)
+	TRUSTYTAHRSERVER = ("Trusty Tahr", 14.0402, osFamily.osFamily.UBUNTUSERVER)
+	UTOPICUNICORNSERVER = ("Utopic Unicorn", 14.10, osFamily.osFamily.UBUNTUSERVER)
+	VIVIDVERVETSERVER = ("Vivid Veret", 15.04, osFamily.osFamily.UBUNTUSERVER)
+
 	def getAllClasses(self):
 		pass
 
