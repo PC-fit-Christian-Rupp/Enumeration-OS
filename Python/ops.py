@@ -16,6 +16,15 @@ class ops(Enum):
 	TWOTHOUSANDEIGHTR2 = ("2008 R2", 6.1, osFamily.osFamily.WINDOWSSERVER)
 	TWOTHOUSANDWTWELVE = ("2012", 6.2, osFamily.osFamily.WINDOWSSERVER)
 
+	# UBUNTU Desktop Family
+	PRECISEPANGOLIN = ("Precise Pangolin", 12.0405, osFamily.osFamily.UBUNTU)
+	QUANTALQUETZAL = ("Quantal Quetzal", 12.10, osFamily.osFamily.UBUNTU)
+	RAIRINGRINGTAIL = ("Rairing Ringtail", 12.04, osFamily.osFamily.UBUNTU)
+	SAUCYSALAMANDER = ("Saucy Salamander", 13.04, osFamily.osFamily.UBUNTU)
+	TRUSTYTAHR = ("Trusty Tahr", 14.0402, osFamily.osFamily.UBUNTU)
+	UTOPICUNICORN = ("Utopic Unicorn", 14.10, osFamily.osFamily.UBUNTU)
+	VIVIDVERVET = ("Vivid Veret", 15.04, osFamily.osFamily.UBUNTU)
+
 	def getAllClasses(self):
 		pass
 

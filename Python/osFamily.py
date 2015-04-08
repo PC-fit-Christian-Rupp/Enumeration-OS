@@ -3,8 +3,10 @@ import osClasses
 import re
 
 class osFamily(Enum):
+
 	WINDOWS = ("WINDOWS", osClasses.osClasses.DESKTOP)
 	WINDOWSSERVER = ("WINDOWS SERVER", osClasses.osClasses.SERVER)
+	UBUNTU = ("Ubuntu", osClasses.osClasses.DESKTOP)
 
 	def __init__(self, family, osClass):
 		self.osclass = osClass
