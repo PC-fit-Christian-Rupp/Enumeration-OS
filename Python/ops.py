@@ -22,6 +22,10 @@ class ops(Enum):
 	def getAllFamily(self):
 		pass
 
+	def toString(self):
+		if self.family.family == osFamily.osFamily.WINDOWS.family or self.family.family == osFamily.osFamily.WINDOWSSERVER.family:
+			return (self.family.family + ' ' + self.os)
+
 	def __init__(self, os, version, family):
 		self.os = os
 		self.version = version
