@@ -34,15 +34,21 @@ class ops(Enum):
 	UTOPICUNICORNSERVER = ("Utopic Unicorn", 14.10, osFamily.osFamily.UBUNTUSERVER)
 	VIVIDVERVETSERVER = ("Vivid Veret", 15.04, osFamily.osFamily.UBUNTUSERVER)
 
-	def getAllClasses(self):
-		pass
+	def getAllClasses(self, classes):
+		ret = []
+		for i in ops:
+			if i.family.osclass.name == classes.name:
+				ret.append(i)
+		return ret
 
-	def getAllFamily(self):
+	def getAllFamily(self, family):
 		pass
 
 	def toString(self):
 		if self.family.family == osFamily.osFamily.WINDOWS.family or self.family.family == osFamily.osFamily.WINDOWSSERVER.family:
 			return (self.family.family + ' ' + self.os)
+		elif self.family.family == osFamily.osFamily.UBUNTU.family or self.family.family == osFamily.osFamily.UBUNTUSERVER.family:
+			return (self.family.family + ' ' +self.version)
 
 	def __init__(self, os, version, family):
 		self.os = os
