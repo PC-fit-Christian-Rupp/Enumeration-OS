@@ -42,7 +42,11 @@ class ops(Enum):
 		return ret
 
 	def getAllFamily(self, family):
-		pass
+		ret = []
+		for i in ops:
+			if i.family.family == family.family:
+				ret.append(i)
+		return ret
 
 	def toString(self):
 		if self.family.family == osFamily.osFamily.WINDOWS.family or self.family.family == osFamily.osFamily.WINDOWSSERVER.family:
