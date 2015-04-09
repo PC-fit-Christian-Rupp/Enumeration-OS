@@ -84,6 +84,12 @@ class ops(Enum):
 	THREENINETEENSERVER = ("Kernel", 3.19, osFamily.osFamily.LINUXSERVER)
 	FOURSERVER = ("Kernel", 4.0, osFamily.osFamily.LINUXSERVER)
 
+	# MAC Desktop Family
+	CHEETAH = ("Cheetah", 10.0, osFamily.osFamily.MAC)
+	PUMA = ("Puma", 10.1, osFamily.osFamily.MAC)
+	
+	# MAC Server Family
+
 	def getAllClasses(self, classes):
 		ret = []
 		for i in ops:
