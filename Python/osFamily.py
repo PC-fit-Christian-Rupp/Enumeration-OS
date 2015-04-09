@@ -8,6 +8,8 @@ class osFamily(Enum):
 	WINDOWSSERVER = ("WINDOWS SERVER", osClasses.osClasses.SERVER)
 	UBUNTU = ("Ubuntu", osClasses.osClasses.DESKTOP)
 	UBUNTUSERVER = ("Ubuntu Server", osClasses.osClasses.SERVER)
+	LINUX = ("Linux", osClasses.osClasses.DESKTOP)
+	LINUXSERVER =  ("Linux", osClasses.osClasses.SERVER)
 
 	def __init__(self, family, osClass):
 		self.osclass = osClass

@@ -34,6 +34,56 @@ class ops(Enum):
 	UTOPICUNICORNSERVER = ("Utopic Unicorn", 14.10, osFamily.osFamily.UBUNTUSERVER)
 	VIVIDVERVETSERVER = ("Vivid Veret", 15.04, osFamily.osFamily.UBUNTUSERVER)
 
+	# LINUX Kernel Family Desktop
+	TWOFOUR = ("Kernel", 2.4, osFamily.osFamily.LINUX)
+	TWOFIVE = ("Kernel", 2.5, osFamily.osFamily.LINUX)
+	TWOSIX = ("Kernel", 2.6, osFamily.osFamily.LINUX)
+	THREE = ("Kernel", 3.0, osFamily.osFamily.LINUX)
+	THREEONE = ("Kernel", 3.1, osFamily.osFamily.LINUX)
+	THREETWO = ("Kernel", 3.2, osFamily.osFamily.LINUX)
+	THREETHREE = ("Kernel", 3.3, osFamily.osFamily.LINUX)
+	THREEFOUR = ("Kernel", 3.4, osFamily.osFamily.LINUX)
+	THREEFIVE = ("Kernel", 3.5, osFamily.osFamily.LINUX)
+	THREESIX = ("Kernel", 3.6, osFamily.osFamily.LINUX)
+	THREESEVEN = ("Kernel", 3.7, osFamily.osFamily.LINUX)
+	THREEEIGHT = ("Kernel", 3.8, osFamily.osFamily.LINUX)
+	THREENINE = ("Kernel", 3.9, osFamily.osFamily.LINUX)
+	THREETEN = ("Kernel", 3.10, osFamily.osFamily.LINUX)
+	THREEELEVEN = ("Kernel", 3.11, osFamily.osFamily.LINUX)
+	THREETWELVE = ("Kernel", 3.12, osFamily.osFamily.LINUX)
+	THREETHIRTEEN = ("Kernel", 3.13, osFamily.osFamily.LINUX)
+	THREEFOURTEEN = ("Kernel", 3.14, osFamily.osFamily.LINUX)
+	THREEFIVTEEN = ("Kernel", 3.15, osFamily.osFamily.LINUX)
+	THREESIXTEEN = ("Kernel", 3.16, osFamily.osFamily.LINUX)
+	THREEEIGHTEEN =  ("Kernel", 3.18, osFamily.osFamily.LINUX)
+	THREENINETEEN = ("Kernel", 3.19, osFamily.osFamily.LINUX)
+	FOUR = ("Kernel", 4.0, osFamily.osFamily.LINUX)
+
+	# LINUX Kernel Family SERVER
+	TWOFOURSERVER = ("Kernel", 2.4, osFamily.osFamily.LINUXSERVER)
+	TWOFIVESERVER = ("Kernel", 2.5, osFamily.osFamily.LINUXSERVER)
+	TWOSIXSERVER = ("Kernel", 2.6, osFamily.osFamily.LINUXSERVER)
+	THREESERVER = ("Kernel", 3.0, osFamily.osFamily.LINUXSERVER)
+	THREEONESERVER = ("Kernel", 3.1, osFamily.osFamily.LINUXSERVER)
+	THREETWOSERVER = ("Kernel", 3.2, osFamily.osFamily.LINUXSERVER)
+	THREETHREESERVER = ("Kernel", 3.3, osFamily.osFamily.LINUXSERVER)
+	THREEFOURSERVER = ("Kernel", 3.4, osFamily.osFamily.LINUXSERVER)
+	THREEFIVESERVER = ("Kernel", 3.5, osFamily.osFamily.LINUXSERVER)
+	THREESIXSERVER = ("Kernel", 3.6, osFamily.osFamily.LINUXSERVER)
+	THREESEVENSERVER = ("Kernel", 3.7, osFamily.osFamily.LINUXSERVER)
+	THREEEIGHTSERVER = ("Kernel", 3.8, osFamily.osFamily.LINUXSERVER)
+	THREENINESERVER = ("Kernel", 3.9, osFamily.osFamily.LINUXSERVER)
+	THREETENSERVER = ("Kernel", 3.10, osFamily.osFamily.LINUXSERVER)
+	THREEELEVENSERVER = ("Kernel", 3.11, osFamily.osFamily.LINUXSERVER)
+	THREETWELVESERVER = ("Kernel", 3.12, osFamily.osFamily.LINUXSERVER)
+	THREETHIRTEENSERVER = ("Kernel", 3.13, osFamily.osFamily.LINUXSERVER)
+	THREEFOURTEENSERVER = ("Kernel", 3.14, osFamily.osFamily.LINUXSERVER)
+	THREEFIVTEENSERVER = ("Kernel", 3.15, osFamily.osFamily.LINUXSERVER)
+	THREESIXTEENSERVER = ("Kernel", 3.16, osFamily.osFamily.LINUXSERVER)
+	THREEEIGHTEENSERVER =  ("Kernel", 3.18, osFamily.osFamily.LINUXSERVER)
+	THREENINETEENSERVER = ("Kernel", 3.19, osFamily.osFamily.LINUXSERVER)
+	FOURSERVER = ("Kernel", 4.0, osFamily.osFamily.LINUXSERVER)
+
 	def getAllClasses(self, classes):
 		ret = []
 		for i in ops:
@@ -52,7 +102,12 @@ class ops(Enum):
 		if self.family.family == osFamily.osFamily.WINDOWS.family or self.family.family == osFamily.osFamily.WINDOWSSERVER.family:
 			return (self.family.family + ' ' + self.os)
 		elif self.family.family == osFamily.osFamily.UBUNTU.family or self.family.family == osFamily.osFamily.UBUNTUSERVER.family:
-			return (self.family.family + ' ' +self.version)
+			return (self.family.family + ' ' + str(self.version))
+		elif self.family.family == osFamily.osFamily.LINUX.family or self.family.family == osFamily.osFamily.LINUXSERVER.family:
+			if self == ops.THREETENSERVER or self == ops.THREETEN:
+				return (self.family.family + " " + self.os + " {}0").format(self.version)
+			else:
+				return self.family.family + ' ' + self.os + ' ' + str(self.version)
 
 	def __init__(self, os, version, family):
 		self.os = os
