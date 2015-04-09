@@ -98,6 +98,17 @@ class ops(Enum):
 	YOSEMITE = ("Yosemite", 10.10, osFamily.osFamily.MAC)
 
 	# MAC Server Family
+	CHEETAHSERVER = ("Cheetah", 10.0, osFamily.osFamily.MACSERVER)
+	PUMASERVER = ("Puma", 10.1, osFamily.osFamily.MACSERVER)
+	JAGUARSERVER = ("Jaguar", 10.2, osFamily.osFamily.MACSERVER)
+	PANTHERSERVER = ("Panther", 10.3, osFamily.osFamily.MACSERVER)
+	TIGERSERVER = ("Tiger", 10.4, osFamily.osFamily.MACSERVER)
+	LEOPARDSERVER = ("Leopard", 10.5, osFamily.osFamily.MACSERVER)
+	SNOWLEOPARDSERVER = ("Snow Leopard", 10.6, osFamily.osFamily.MACSERVER)
+	OSXSERVERONE = ("1.0", 1.0, osFamily.osFamily.MACSERVER)
+	OSXSERVERTWO = ("2.0", 2.0, osFamily.osFamily.MACSERVER)
+	OSXSERVERTHREE = ("3.0", 3.0, osFamily.osFamily.MACSERVER)
+	OSXSERVERFOUR = ("4.0", 4.0, osFamily.osFamily.MACSERVER)
 
 	def getAllClasses(self, classes):
 		ret = []
@@ -128,7 +139,12 @@ class ops(Enum):
 				return 'MAC '+ self.family.family + ' ' + str(self.version)
 			else:
 				return self.family.family + ' ' + str(self.version)
-
+		elif self.family.family == osFamily.osFamily.MACSERVER.family:
+			if self == ops.CHEETAHSERVER or self == ops.PUMASERVER or self == ops.JAGUARSERVER or self == ops.PANTHERSERVER or self == ops.TIGERSERVER or self ==  ops.LEOPARDSERVER or self == ops.SNOWLEOPARDSERVER:
+				return 'MAC '+ self.family.family + ' ' + str(self.version)
+			else:
+				return self.family.family + ' ' + self.os
+				
 	def __init__(self, os, version, family):
 		self.os = os
 		self.version = version
