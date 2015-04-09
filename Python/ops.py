@@ -87,7 +87,16 @@ class ops(Enum):
 	# MAC Desktop Family
 	CHEETAH = ("Cheetah", 10.0, osFamily.osFamily.MAC)
 	PUMA = ("Puma", 10.1, osFamily.osFamily.MAC)
-	
+	JAGUAR = ("Jaguar", 10.2, osFamily.osFamily.MAC)
+	PANTHER = ("Panther", 10.3, osFamily.osFamily.MAC)
+	TIGER = ("Tiger", 10.4, osFamily.osFamily.MAC)
+	LEOPARD = ("Leopard", 10.5, osFamily.osFamily.MAC)
+	SNOWLEOPARD = ("Snow Leopard", 10.6, osFamily.osFamily.MAC)
+	LION = ("Lion", 10.7, osFamily.osFamily.MAC)
+	MOUNTAINLION = ("Mountain Lion", 10.8, osFamily.osFamily.MAC)
+	MAVERICKS = ("Mavericks", 10.9, osFamily.osFamily.MAC)
+	YOSEMITE = ("Yosemite", 10.10, osFamily.osFamily.MAC)
+
 	# MAC Server Family
 
 	def getAllClasses(self, classes):
@@ -114,6 +123,9 @@ class ops(Enum):
 				return (self.family.family + " " + self.os + " {}0").format(self.version)
 			else:
 				return self.family.family + ' ' + self.os + ' ' + str(self.version)
+		elif self.family.family == osFamily.osFamily.MAC.family:
+			if self.version < 10.8:
+				return 'MAC '+ self.family.family + ' ' + str(self.version)
 
 	def __init__(self, os, version, family):
 		self.os = os
