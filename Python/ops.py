@@ -126,6 +126,8 @@ class ops(Enum):
 		elif self.family.family == osFamily.osFamily.MAC.family:
 			if self.version < 10.8:
 				return 'MAC '+ self.family.family + ' ' + str(self.version)
+			else:
+				return self.family.family + ' ' + str(self.version)
 
 	def __init__(self, os, version, family):
 		self.os = os
