@@ -7,6 +7,7 @@ class osClasses(Enum):
 
 	def parse(self, string):
 		for j in osClasses:
-			if (string.lower()).find(j.name.lower())>0:
+			if (string.lower()).find(j.name.lower())>=0:
 				return j
+		return osClasses.DESKTOP
 

@@ -17,16 +17,17 @@ class osFamily(Enum):
 		self.osclass = osClass
 		self.family = family
 
+	def getAllClasses(self, classes):
+		ret = []
+		for i in osFamily:
+			if i.osclass == classes:
+				ret.append(i)
+		return ret
+
 	def parse(self, string):
-#		if re.search(osFamily.WINDOWSSERVER.family.partition(" ")[0], string, re.IGNORECASE) and re.search(osFamily.WINDOWSSERVER.family.partition(" ")[1], string, re.IGNORECASE):
-#			return osFamily.WINDOWSSERVER
-#		elif re.search(osFamily.WINDOWS.family, string, re.IGNORECASE):
-#			return osFamily.WINDOWS
-#		elif re.search(osFamily.UBUNTUSERVER.family.partition(" ")[0], string, re.IGNORECASE) and re.search(osFamily.UBUNTUSERVER.family.partition(" ")[1], string, re.IGNORECASE):
-#			return osFamily.UBUNTUSERVER
-#		elif re.search(osFamily.UBUNTU.family, string, re.IGNORECASE):
-#			return os.Family.UBUNTU
-#		elif re.search(osFamily.MACSERVER.family.partition(" ")[0], string, re.IGNORECASE) and re.search(osFamily.MACSERVER.family.partition(" ")[1], string, re.IGNORECASE) and re.search(osFamily.MACSERVER.family.partition(" ")[2], string, re.IGNORECASE):
-#			return os.Family.MACSERVER
-#		elif re.search(osFamily.MACSERVER.family.partition(" ")[0], string, re.IGNORECASE) and re.search(osFamily.MAC.family.partition(" ")[1], string, re.IGNORECASE):
-#			return os.Family.MAC
+		lst = self.getAllClasses(osClasses.osClasses.DESKTOP.parse(string))
+		for i in lst:
+			if (string.lower()).find(i.family.lower())>=0:
+				return i
+
+
