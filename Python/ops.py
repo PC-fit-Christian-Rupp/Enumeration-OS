@@ -1,5 +1,6 @@
 from enum import Enum
 import osFamily
+import re
 
 class ops(Enum):
 	
@@ -112,7 +113,10 @@ class ops(Enum):
 
 	def parse(self, string):
 		family = osFamily.osFamily.WINDOWS.parse(string)
-		lst = getAllFamily(string)
+		lst = ops.SEVEN.getAllFamily(family)
+		for i in lst:
+			if (re.search(i.name, string, re.IGNORECASE) or re.search(i.os, string, re.IGNORECASE)):
+				return i
 
 	def getAllClasses(self, classes):
 		ret = []
