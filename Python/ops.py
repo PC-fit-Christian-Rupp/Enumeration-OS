@@ -127,6 +127,9 @@ class ops(Enum):
 #			else:
 #				return ops.THREETENSERVER
 
+	def versionToFloat(self):
+		return float(self.version)
+
 	def getAllClasses(self, classes):
 		ret = []
 		for i in ops:
@@ -147,12 +150,9 @@ class ops(Enum):
 		elif self.family.family == osFamily.osFamily.UBUNTU.family or self.family.family == osFamily.osFamily.UBUNTUSERVER.family:
 			return (self.family.family + ' ' + self.version)
 		elif self.family.family == osFamily.osFamily.LINUX.family or self.family.family == osFamily.osFamily.LINUXSERVER.family:
-			if self == ops.THREETENSERVER or self == ops.THREETEN:
-				return (self.family.family + " " + self.os + self.version)
-			else:
-				return self.family.family + ' ' + self.os + ' ' + self.version
+			return self.family.family + ' ' + self.os + ' ' + self.version
 		elif self.family.family == osFamily.osFamily.MAC.family:
-			if self.version < 10.8:
+			if self.versionToFloat() < 10.8:
 				return 'MAC '+ self.family.family + ' ' + self.version
 			else:
 				return self.family.family + ' ' + self.version
