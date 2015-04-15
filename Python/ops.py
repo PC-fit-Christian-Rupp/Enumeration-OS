@@ -110,6 +110,10 @@ class ops(Enum):
 	OSXSERVERTHREE = ("3.0", 3.0, osFamily.osFamily.MACSERVER)
 	OSXSERVERFOUR = ("4.0", 4.0, osFamily.osFamily.MACSERVER)
 
+	def parse(self, string):
+		family = osFamily.osFamily.WINDOWS.parse(string)
+		lst = getAllFamily(string)
+
 	def getAllClasses(self, classes):
 		ret = []
 		for i in ops:

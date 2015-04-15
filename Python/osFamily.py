@@ -18,7 +18,7 @@ class osFamily(Enum):
 		self.family = family
 
 	def parse(self, string):
-		if re.search(osFamily.WINDOWSSERVER.family.partition(" ")[0], string, re.IGNORECASE) and re.seach(osFamily.WINDOWSSERVER.family.partition(" ")[1], string, re.IGNORECASE):
+		if re.search(osFamily.WINDOWSSERVER.family.partition(" ")[0], string, re.IGNORECASE) and re.search(osFamily.WINDOWSSERVER.family.partition(" ")[1], string, re.IGNORECASE):
 			return osFamily.WINDOWSSERVER
 		elif re.search(osFamily.WINDOWS.family, string, re.IGNORECASE):
 			return osFamily.WINDOWS
