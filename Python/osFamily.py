@@ -28,5 +28,5 @@ class osFamily(Enum):
 			return os.Family.UBUNTU
 		elif re.search(osFamily.MACSERVER.family.partition(" ")[0], string, re.IGNORECASE) and re.search(osFamily.MACSERVER.family.partition(" ")[1], string, re.IGNORECASE) and re.search(osFamily.MACSERVER.family.partition(" ")[2], string, re.IGNORECASE):
 			return os.Family.MACSERVER
-		elif e.search(osFamily.MACSERVER.family.partition(" ")[0], string, re.IGNORECASE) and re.search(osFamily.MAC.family.partition(" ")[1], string, re.IGNORECASE):
+		elif re.search(osFamily.MACSERVER.family.partition(" ")[0], string, re.IGNORECASE) and re.search(osFamily.MAC.family.partition(" ")[1], string, re.IGNORECASE):
 			return os.Family.MAC
