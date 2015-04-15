@@ -112,11 +112,14 @@ class ops(Enum):
 	OSXSERVERFOUR = ("4.0", 4.0, osFamily.osFamily.MACSERVER)
 
 	def parse(self, string):
-		family = osFamily.osFamily.WINDOWS.parse(string)
-		lst = ops.SEVEN.getAllFamily(family)
+		lst = self.getAllFamily(osFamily.osFamily.MACSERVER.parse(string))
 		for i in lst:
-			if (re.search(i.name, string, re.IGNORECASE) or re.search(i.os, string, re.IGNORECASE)):
+			if ((string.lower()).find(i.os.lower())>=0) and not(i.os == 'Kernel'):
 				return i
+			elif ((string.lower()).find(str(i.version).lower())>=0) and not ((string.lower()).find('3.10'))>=0:
+				return i
+			else:
+				return ops.THREETENSERVER
 
 	def getAllClasses(self, classes):
 		ret = []

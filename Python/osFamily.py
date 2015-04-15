@@ -9,7 +9,7 @@ class osFamily(Enum):
 	UBUNTU = ("Ubuntu", osClasses.osClasses.DESKTOP)
 	UBUNTUSERVER = ("Ubuntu Server", osClasses.osClasses.SERVER)
 	LINUX = ("Linux", osClasses.osClasses.DESKTOP)
-	LINUXSERVER =  ("Linux", osClasses.osClasses.SERVER)
+	LINUXSERVER =  ("Linux Server", osClasses.osClasses.SERVER)
 	MAC = ("OS X", osClasses.osClasses.DESKTOP)
 	MACSERVER = ("OS X Server", osClasses.osClasses.SERVER)
 
@@ -27,7 +27,12 @@ class osFamily(Enum):
 	def parse(self, string):
 		lst = self.getAllClasses(osClasses.osClasses.DESKTOP.parse(string))
 		for i in lst:
-			if (string.lower()).find(i.family.lower())>=0:
+			a = 0
+			lst2 = i.family.split(' ')
+			for j in lst2:
+				if (string.lower()).find(j.lower()) >= 0:
+					a += 1
+			if a == len(lst2):
 				return i
 
 
