@@ -6,9 +6,8 @@ class osClasses(Enum):
 	SERVER = 2
 
 	def parse(self, string):
-		if re.search(osClasses.DESKTOP.name, string, re.IGNORECASE):
-			return osClasses.DESKTOP
-		elif re.search(osClasses.SERVER.name, string, re.IGNORECASE):
-			return osClasses.SERVER
-		else:
-			return None
+		for j in osClasses:
+			if (string.lower()).find(j.name.lower())>=0:
+				return j
+		return osClasses.DESKTOP
+
