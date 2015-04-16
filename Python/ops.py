@@ -116,16 +116,12 @@ class ops(Enum):
 		lst = self.getAllFamily(classes)
 		if classes.family == osFamily.osFamily.WINDOWS.family or classes.family == osFamily.osFamily.WINDOWSSERVER.family:
 			for i in lst:
-				if ((string.lower()).find(i.os.lower())>=0):
-					return i
-
-#		for i in lst:
-#			if ((string.lower()).find(i.os.lower())>=0) and not(i.os == 'Kernel'):
-#				return i
-#			elif ((string.lower()).find(str(i.version).lower())>=0) and not ((string.lower()).find('3.10'))>=0:
-#				return i
-#			else:
-#				return ops.THREETENSERVER
+				for j in string.split(' '):
+					if j.lower()==i.os.lower():
+						return i
+#				if (self.findWholeWord(i.os)(string)):
+#					if len(self.findWholeWord(i.os)(string).group())==len(i.os):
+#						return i
 
 	def versionToFloat(self):
 		lst = self.version.split('.')
