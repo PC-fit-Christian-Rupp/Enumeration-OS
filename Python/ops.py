@@ -116,12 +116,20 @@ class ops(Enum):
 		lst = self.getAllFamily(classes)
 		if classes.family == osFamily.osFamily.WINDOWS.family or classes.family == osFamily.osFamily.WINDOWSSERVER.family:
 			for i in lst:
-				for j in string.split(' '):
-					if j.lower()==i.os.lower():
-						return i
-#				if (self.findWholeWord(i.os)(string)):
-#					if len(self.findWholeWord(i.os)(string).group())==len(i.os):
-#						return i
+				if not('R2' in string.split(' ')):
+					for j in string.split(' '):
+						if j.lower()==i.os.lower():
+							return i
+				else:
+					return ops.TWOTHOUSANDEIGHTR2
+		elif classes.family == osFamily.osFamily.UBUNTU.family or classes.family == osFamily.osFamily.UBUNTUSERVER.family or classes.family == osFamily.osFamily.MAC.family or classes.family == osFamily.osFamily.MACSERVER.family:
+			for i in lst:
+				a=0
+				for j in i.os.split(' '):
+					if (string.lower()).find(j.lower())>=0:
+						a += 1
+				if a == len(i.os.split(' ')):
+					return i
 
 	def versionToFloat(self):
 		lst = self.version.split('.')
