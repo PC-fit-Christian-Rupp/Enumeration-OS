@@ -130,6 +130,9 @@ class ops(Enum):
 						a += 1
 				if a == len(i.os.split(' ')):
 					return i
+		for i in lst:
+			if (string.lower()).find(i.version.lower())>=0:
+				return i
 
 	def versionToFloat(self):
 		lst = self.version.split('.')
