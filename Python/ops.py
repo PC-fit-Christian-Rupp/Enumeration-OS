@@ -128,7 +128,16 @@ class ops(Enum):
 #				return ops.THREETENSERVER
 
 	def versionToFloat(self):
-		return float(self.version)
+		lst = self.version.split('.')
+		a=0
+		ret = ''
+		for i in lst:
+			if a==0:
+				ret = i+'.'
+				a+=1
+			else:
+				ret = ret + i
+		return float(ret)
 
 	def getAllClasses(self, classes):
 		ret = []
