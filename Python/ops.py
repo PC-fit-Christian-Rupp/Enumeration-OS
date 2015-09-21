@@ -10,6 +10,7 @@ class ops(Enum):
 	SEVEN = ("7", '6.1', osFamily.osFamily.WINDOWS)
 	EIGHT = ("8", '6.2', osFamily.osFamily.WINDOWS)
 	EIGHTONE = ("8.1", '6.3', osFamily.osFamily.WINDOWS)
+	TEN = ("10", '10.0',osFamily.osFamily.WINDOWS)
 
 	# WINDOWS Server Family
 	TWOTHOUSANDTHREE = ("2003", '5.3', osFamily.osFamily.WINDOWSSERVER)
