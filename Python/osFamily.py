@@ -13,6 +13,7 @@ class osFamily(Enum):
 	MAC = ("OS X", osClasses.osClasses.DESKTOP)
 	MACSERVER = ("OS X Server", osClasses.osClasses.SERVER)
 	IOS = ("iOS", osClasses.osClasses.EMBEDDED)
+	ANDROID = ("Android", osClasses.osClasses.EMBEDDED)
 
 	def __init__(self, family, osClass):
 		self.osclass = osClass
