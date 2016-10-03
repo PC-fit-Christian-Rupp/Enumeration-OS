@@ -6,6 +6,9 @@ class osFamily(Enum):
 
 	WINDOWS = ("WINDOWS", osClasses.osClasses.DESKTOP)
 	WINDOWSSERVER = ("WINDOWS SERVER", osClasses.osClasses.SERVER)
+	WINDOWSMOBILE = ("WINDOWS Mobile", osClasses.osClasses.EMBEDDED)
+	WINDOWSPHONE = ("WINDOWS Phone", osClasses.osClasses.EMBEDDED)
+	WINDOWSTENMOBILE = ("WINDOWS 10 Mobile", osClasses.osClasses.EMBEDDED)
 	UBUNTU = ("Ubuntu", osClasses.osClasses.DESKTOP)
 	UBUNTUSERVER = ("Ubuntu Server", osClasses.osClasses.SERVER)
 	LINUX = ("Linux", osClasses.osClasses.DESKTOP)
