@@ -17,7 +17,7 @@ class ops(Enum):
 	TWOTHOUSANDEIGHT = ("2008", '6.0', osFamily.osFamily.WINDOWSSERVER)
 	TWOTHOUSANDEIGHTR2 = ("2008 R2", '6.1', osFamily.osFamily.WINDOWSSERVER)
 	TWOTHOUSANDTWELVE = ("2012", '6.2', osFamily.osFamily.WINDOWSSERVER)
-	TWOTHOUSANDTWELVER2 = ("2012 R2", '6.3', osFamily.osFamily.WINDOWSSERVER) #New
+	TWOTHOUSANDTWELVER2 = ("2012 R2", '6.3', osFamily.osFamily.WINDOWSSERVER)
 
 	# UBUNTU Desktop Family
 	PRECISEPANGOLIN = ("Precise Pangolin", '12.04.05', osFamily.osFamily.UBUNTU)
@@ -27,9 +27,8 @@ class ops(Enum):
 	TRUSTYTAHR = ("Trusty Tahr", '14.04.02', osFamily.osFamily.UBUNTU)
 	UTOPICUNICORN = ("Utopic Unicorn", '14.10', osFamily.osFamily.UBUNTU)
 	VIVIDVERVET = ("Vivid Veret", '15.04', osFamily.osFamily.UBUNTU)
-	WILYWEREWOLF = ("Wily Werewolf", '15.10', osFamily.osFamily.UBUNTU) #New
+	WILYWEREWOLF = ("Wily Werewolf", '15.10', osFamily.osFamily.UBUNTU)
 	XENIALXERUS = ("Xenial Xerus", '16.04', osFamily.osFamily.UBUNTU) 
-	
 
 	# UBUNTU SERVER Family
 	PRECISEPANGOLINSERVER = ("Precise Pangolin", '12.04.05', osFamily.osFamily.UBUNTUSERVER)
@@ -39,7 +38,7 @@ class ops(Enum):
 	TRUSTYTAHRSERVER = ("Trusty Tahr", '14.04.02', osFamily.osFamily.UBUNTUSERVER)
 	UTOPICUNICORNSERVER = ("Utopic Unicorn", '14.10', osFamily.osFamily.UBUNTUSERVER)
 	VIVIDVERVETSERVER = ("Vivid Veret", '15.04', osFamily.osFamily.UBUNTUSERVER)
-	WILYWEREWOLFSERVER = ("Wily Werewolf", '15.10', osFamily.osFamily.UBUNTU) #New
+	WILYWEREWOLFSERVER = ("Wily Werewolf", '15.10', osFamily.osFamily.UBUNTU)
 	XENIALXERUSSERVER = ("Xenial Xerus", '16.04', osFamily.osFamily.UBUNTU)	
 
 	# LINUX Kernel Family Desktop
@@ -66,7 +65,7 @@ class ops(Enum):
 	THREEEIGHTEEN =  ("Kernel", '3.18', osFamily.osFamily.LINUX)
 	THREENINETEEN = ("Kernel", '3.19', osFamily.osFamily.LINUX)
 	FOUR = ("Kernel", '4.0', osFamily.osFamily.LINUX)
-	FOURONE = ("Kernel", '4.1', osFamily.osFamily.LINUX) #New
+	FOURONE = ("Kernel", '4.1', osFamily.osFamily.LINUX)
 	FOURTWO = ("Kernel", '4.2', osFamily.osFamily.LINUX)
 	FOURTHREE = ("Kernel", '4.3', osFamily.osFamily.LINUX)
 	FOURFOUR = ("Kernel", '4.4', osFamily.osFamily.LINUX)
@@ -99,7 +98,7 @@ class ops(Enum):
 	THREEEIGHTEENSERVER =  ("Kernel", '3.18', osFamily.osFamily.LINUXSERVER)
 	THREENINETEENSERVER = ("Kernel", '3.19', osFamily.osFamily.LINUXSERVER)
 	FOURSERVER = ("Kernel", '4.0', osFamily.osFamily.LINUXSERVER)
-	FOURONESERVER = ("Kernel", '4.1', osFamily.osFamily.LINUX) #New
+	FOURONESERVER = ("Kernel", '4.1', osFamily.osFamily.LINUX) 
 	FOURTWOSERVER = ("Kernel", '4.2', osFamily.osFamily.LINUX)
 	FOURTHREESERVER = ("Kernel", '4.3', osFamily.osFamily.LINUX)
 	FOURFOURSERVER = ("Kernel", '4.4', osFamily.osFamily.LINUX)
@@ -120,7 +119,7 @@ class ops(Enum):
 	MOUNTAINLION = ("Mountain Lion", '10.8', osFamily.osFamily.MAC)
 	MAVERICKS = ("Mavericks", '10.9', osFamily.osFamily.MAC)
 	YOSEMITE = ("Yosemite", '10.10', osFamily.osFamily.MAC)
-	ELCAPITAN = ("El Capitan", '10.11', osFamily.osFamily.MAC) #New
+	ELCAPITAN = ("El Capitan", '10.11', osFamily.osFamily.MAC)
 	SIERRA = ("Sierra", '10.12', osFamily.osFamily.MAC)
 
 	# MAC Server Family
@@ -135,7 +134,19 @@ class ops(Enum):
 	OSXSERVERTWO = ("2.0", '2.0', osFamily.osFamily.MACSERVER)
 	OSXSERVERTHREE = ("3.0", '3.0', osFamily.osFamily.MACSERVER)
 	OSXSERVERFOUR = ("4.0", '4.0', osFamily.osFamily.MACSERVER)
-	OSXSERVERFIVE = ("5.0", '5.0', osFamily.osFamily.MACSERVER) #New
+	OSXSERVERFIVE = ("5.0", '5.0', osFamily.osFamily.MACSERVER)
+
+	# MAC iOS Family
+	IOSEIGHT = ("8.0", '8.0', osFamily.osFamily.IOS) 
+	IOSNINE = ("9.0", '9.0', osFamily.osFamily.IOS)
+	IOSTEN = ("10.0", '10.0', osFamily.osFamily.IOS)
+
+	# MAC tvOS Family
+	TVOSNINE = ("9.0", '9.0', osFamily.osFamily.TVOS)
+
+	# MAC watchOS Family
+	WATCHOSONE = ("1.0", '1.0', osFamily.osFamily.WATCHOS)
+	WATCHOSTWO = ("2.0", '2.0', osFamily.osFamily.WATCHOS)
 
 	def parse(self, string):
 		classes = osFamily.osFamily.MACSERVER.parse(string)
