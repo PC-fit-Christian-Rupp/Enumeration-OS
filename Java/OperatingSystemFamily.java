@@ -37,6 +37,19 @@ public enum OperatingSystemFamily{
     }
 
     //TODO Parse Function
+    public OperatingSystemFamily parse(String stringToParse){
+        List<OperatingSystemFamily> oList = GetAllFamiliesToClass(OperatingSystemClasses.DESKTOP.parse(stringToParse));
+        for (OperatingSystemFamily oItem:oList)
+        {
+            int partsOfStringFound = 0;
+            for (String part:oItem.getFamilyName().split(" "))
+            {
+                if (stringToParse.toLowerCase().contains(part.toLowerCase())){partsOfStringFound+=1;}
+            }
+            if (partsOfStringFound==oItem.getFamilyName().split(" ").length){return oItem;}
+        }
+        return null;
+    }
 
     public String getFamilyName(){
         return this.familyName;
