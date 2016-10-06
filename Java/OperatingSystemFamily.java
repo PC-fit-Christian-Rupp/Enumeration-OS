@@ -36,7 +36,6 @@ public enum OperatingSystemFamily{
         return oReturnList;
     }
 
-    //TODO Parse Function
     public OperatingSystemFamily parse(String stringToParse){
         List<OperatingSystemFamily> oList = GetAllFamiliesToClass(OperatingSystemClasses.DESKTOP.parse(stringToParse));
         for (OperatingSystemFamily oItem:oList)
