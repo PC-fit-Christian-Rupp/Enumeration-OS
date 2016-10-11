@@ -38,8 +38,8 @@ class ops(Enum):
 	TRUSTYTAHRSERVER = ("Trusty Tahr", '14.04.02', osFamily.osFamily.UBUNTUSERVER)
 	UTOPICUNICORNSERVER = ("Utopic Unicorn", '14.10', osFamily.osFamily.UBUNTUSERVER)
 	VIVIDVERVETSERVER = ("Vivid Veret", '15.04', osFamily.osFamily.UBUNTUSERVER)
-	WILYWEREWOLFSERVER = ("Wily Werewolf", '15.10', osFamily.osFamily.UBUNTU)
-	XENIALXERUSSERVER = ("Xenial Xerus", '16.04', osFamily.osFamily.UBUNTU)	
+	WILYWEREWOLFSERVER = ("Wily Werewolf", '15.10', osFamily.osFamily.UBUNTUSERVER)
+	XENIALXERUSSERVER = ("Xenial Xerus", '16.04', osFamily.osFamily.UBUNTUSERVER)	
 
 	# LINUX Kernel Family Desktop
 	TWOFOUR = ("Kernel", '2.4', osFamily.osFamily.LINUX)
@@ -98,14 +98,14 @@ class ops(Enum):
 	THREEEIGHTEENSERVER =  ("Kernel", '3.18', osFamily.osFamily.LINUXSERVER)
 	THREENINETEENSERVER = ("Kernel", '3.19', osFamily.osFamily.LINUXSERVER)
 	FOURSERVER = ("Kernel", '4.0', osFamily.osFamily.LINUXSERVER)
-	FOURONESERVER = ("Kernel", '4.1', osFamily.osFamily.LINUX) 
-	FOURTWOSERVER = ("Kernel", '4.2', osFamily.osFamily.LINUX)
-	FOURTHREESERVER = ("Kernel", '4.3', osFamily.osFamily.LINUX)
-	FOURFOURSERVER = ("Kernel", '4.4', osFamily.osFamily.LINUX)
-	FOURFIVESERVER = ("Kernel", '4.5', osFamily.osFamily.LINUX)
-	FOURSIXSERVER = ("Kernel", '4.6', osFamily.osFamily.LINUX)
-	FOURSEVENSERVER = ("Kernel", '4.7', osFamily.osFamily.LINUX)	
-	FOUREIGHTSERVER = ("Kernel", '4.8', osFamily.osFamily.LINUX)
+	FOURONESERVER = ("Kernel", '4.1', osFamily.osFamily.LINUXSERVER) 
+	FOURTWOSERVER = ("Kernel", '4.2', osFamily.osFamily.LINUXSERVER)
+	FOURTHREESERVER = ("Kernel", '4.3', osFamily.osFamily.LINUXSERVER)
+	FOURFOURSERVER = ("Kernel", '4.4', osFamily.osFamily.LINUXSERVER)
+	FOURFIVESERVER = ("Kernel", '4.5', osFamily.osFamily.LINUXSERVER)
+	FOURSIXSERVER = ("Kernel", '4.6', osFamily.osFamily.LINUXSERVER)
+	FOURSEVENSERVER = ("Kernel", '4.7', osFamily.osFamily.LINUXSERVER)	
+	FOUREIGHTSERVER = ("Kernel", '4.8', osFamily.osFamily.LINUXSERVER)
 
 	# MAC Desktop Family
 	CHEETAH = ("Cheetah", '10.0', osFamily.osFamily.MAC)
@@ -137,16 +137,16 @@ class ops(Enum):
 	OSXSERVERFIVE = ("5.0", '5.0', osFamily.osFamily.MACSERVER)
 
 	# MAC iOS Family
-	IOSEIGHT = ("8.0", '8.0', osFamily.osFamily.IOS) 
-	IOSNINE = ("9.0", '9.0', osFamily.osFamily.IOS)
-	IOSTEN = ("10.0", '10.0', osFamily.osFamily.IOS)
+	IOSEIGHT = ("iOS 8", '8.0', osFamily.osFamily.IOS) 
+	IOSNINE = ("iOS 9", '9.0', osFamily.osFamily.IOS)
+	IOSTEN = ("iOS 10", '10.0', osFamily.osFamily.IOS)
 
 	# MAC tvOS Family
-	TVOSNINE = ("9.0", '9.0', osFamily.osFamily.TVOS)
+	TVOSNINE = ("tvOS 9", '9.0', osFamily.osFamily.TVOS)
 
 	# MAC watchOS Family
-	WATCHOSONE = ("1.0", '1.0', osFamily.osFamily.WATCHOS)
-	WATCHOSTWO = ("2.0", '2.0', osFamily.osFamily.WATCHOS)
+	WATCHOSONE = ("watchOS 1", '1.0', osFamily.osFamily.WATCHOS)
+	WATCHOSTWO = ("watchOS 2", '2.0', osFamily.osFamily.WATCHOS)
 
 	def parse(self, string):
 		classes = osFamily.osFamily.MACSERVER.parse(string)
@@ -185,6 +185,8 @@ class ops(Enum):
 
 	def getAllClasses(self, classes):
 		ret = []
+		if classes == None:
+			return ops
 		for i in ops:
 			if i.family.osclass.name == classes.name:
 				ret.append(i)
@@ -192,6 +194,8 @@ class ops(Enum):
 
 	def getAllFamily(self, family):
 		ret = []
+		if family == None:
+			return ops
 		for i in ops:
 			if i.family.family == family.family:
 				ret.append(i)
@@ -214,6 +218,8 @@ class ops(Enum):
 				return 'MAC '+ self.family.family + ' ' + self.version
 			else:
 				return self.family.family + ' ' + self.os
+		else:
+			return self.os
 				
 	def __init__(self, os, version, family):
 		self.os = os

@@ -136,16 +136,16 @@ public enum OperatingSystems{
 	OSXSERVERFIVE ("5.0", "5.0", OperatingSystemFamily.MACSERVER),
 
 	// MAC iOS Family
-	IOSEIGHT ("8.0", "8.0", OperatingSystemFamily.IOS), 
-	IOSNINE ("9.0", "9.0", OperatingSystemFamily.IOS),
-	IOSTEN ("10.0", "10.0", OperatingSystemFamily.IOS),
+	IOSEIGHT ("iOS 8", "8.0", OperatingSystemFamily.IOS), 
+	IOSNINE ("iOS 9", "9.0", OperatingSystemFamily.IOS),
+	IOSTEN ("iOS 10", "10.0", OperatingSystemFamily.IOS),
 
 	// MAC tvOS Family
-	TVOSNINE ("9.0", "9.0", OperatingSystemFamily.TVOS),
+	TVOSNINE ("tvOS 9", "9.0", OperatingSystemFamily.TVOS),
 
 	// MAC watchOS Family
-	WATCHOSONE ("1.0", "1.0", OperatingSystemFamily.WATCHOS),
-	WATCHOSTWO ("2.0", "2.0", OperatingSystemFamily.WATCHOS);
+	WATCHOSONE ("watchOS 1", "1.0", OperatingSystemFamily.WATCHOS),
+	WATCHOSTWO ("watchOS 2", "2.0", OperatingSystemFamily.WATCHOS);
 
     private String SystemName;
     private String VersionNumber;
@@ -205,11 +205,38 @@ public enum OperatingSystems{
     }
 
     public OperatingSystems parse(String stringToParse){
-        // TODO
+		OperatingSystemFamily oFamily = OperatingSystemFamily.MACSERVER.parse(stringToParse);
+        List<OperatingSystems> oList = GetAllOperatingSystemsToFamily(oFamily);
+		// TODO WINDOWS Case
+		// TODO UBUNTU Case
         return null;
     }
 
     public String toString(){
-        return null;
+        if (this.osFamily == OperatingSystemFamily.WINDOWS || this.osFamily == OperatingSystemFamily.WINDOWSSERVER){
+			return (this.osFamily.getFamilyName() + " " + this.SystemName);
+		}
+		else if(this.osFamily == OperatingSystemFamily.UBUNTU || this.osFamily == OperatingSystemFamily.UBUNTUSERVER){
+			return (this.osFamily.getFamilyName() + " " + this.VersionNumber);
+		}
+		else if(this.osFamily == OperatingSystemFamily.MAC){
+			if (this.versionToFloat() < 10.8){
+				return ("MAC " + this.osFamily.getFamilyName() + " " + this.VersionNumber);
+			}
+			else{
+				return (this.osFamily.getFamilyName() + " " + this.VersionNumber);
+			}
+		}
+		else if(this.osFamily == OperatingSystemFamily.MACSERVER){
+			if (this == CHEETAHSERVER || this == PUMASERVER || this == JAGUARSERVER || this == PANTHERSERVER || this == TIGERSERVER || this == LEOPARDSERVER || this == SNOWLEOPARDSERVER){
+				return ("MAC " + this.osFamily.getFamilyName() + " " + this.VersionNumber);
+			}
+			else{
+				return (this.osFamily.getFamilyName() + " " + this.SystemName);
+			}
+		}
+		else{
+			return this.SystemName;
+		}
     }
 }

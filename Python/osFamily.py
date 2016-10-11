@@ -26,6 +26,8 @@ class osFamily(Enum):
 
 	def getAllClasses(self, classes):
 		ret = []
+		if classes == None:
+    		return osFamily
 		for i in osFamily:
 			if i.osclass == classes:
 				ret.append(i)

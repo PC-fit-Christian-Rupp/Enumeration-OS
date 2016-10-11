@@ -93,7 +93,26 @@ public class Test{
             System.out.println("Ubuntu Operating System Test!\t\t\tFINISHED");
         }
         else{System.out.println("Ubuntu Operating System Test!\t\t\tFAILED");}
-
+        if (TestOperatingSystemsToString(OperatingSystems.XP, "WINDOWS XP")){
+            System.out.println("Windows To String Test!\t\t\t\tFINISHED");
+        }
+        else{System.out.println("Windows To String Test!\t\t\t\tFAILED");}
+        if (TestOperatingSystemsToString(OperatingSystems.TRUSTYTAHR, "Ubuntu 14.04.02")){
+            System.out.println("Ubuntu To String Test!\t\t\t\tFINISHED");
+        }
+        else{System.out.println("Ubuntu To String Test!\t\t\t\tFAILED");}
+        if (TestOperatingSystemsToString(OperatingSystems.TIGER, "MAC OS X 10.4")){
+            System.out.println("MAC To String Test!\t\t\t\tFINISHED");
+        }
+        else{System.out.println("MAC To String Test!\t\t\t\tFAILED");}
+        if (TestOperatingSystemsToString(OperatingSystems.TIGERSERVER, "MAC OS X Server 10.4")){
+            System.out.println("MAC Server To String Test!\t\t\tFINISHED");
+        }
+        else{System.out.println("MAC Server To String Test!\t\t\tFAILED");}
+        if (TestOperatingSystemsToString(OperatingSystems.IOSEIGHT, "iOS 8")){
+            System.out.println("Default To String Test!\t\t\t\tFINISHED");
+        }
+        else{System.out.println("Default To String Test!\t\t\t\tFAILED");}
         PrintLine();
 	}
 	
@@ -141,6 +160,10 @@ public class Test{
     public static Boolean TestOperatingSystemsGetAllOperatingSystemsToFamily(OperatingSystemFamily oFamily, int CountItems){
         OperatingSystems os = OperatingSystems.CHEETAH;
         return (os.GetAllOperatingSystemsToFamily(oFamily).size() == CountItems);
+    }
+
+    public static Boolean TestOperatingSystemsToString(OperatingSystems OS, String strResult){
+        return (OS.toString().equals(strResult));
     }
 
     public static void PrintLine(){
