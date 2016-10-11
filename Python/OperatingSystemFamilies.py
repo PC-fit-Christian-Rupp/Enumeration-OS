@@ -2,7 +2,7 @@ from enum import Enum
 import OperatingSystemClasses
 import re
 
-class osFamily(Enum):
+class OperatingSystemFamilies(Enum):
 
 	WINDOWS = ("WINDOWS", OperatingSystemClasses.OperatingSystemClasses.DESKTOP)
 	WINDOWSSERVER = ("WINDOWS SERVER", OperatingSystemClasses.OperatingSystemClasses.SERVER)
@@ -27,8 +27,8 @@ class osFamily(Enum):
 	def getAllClasses(self, classes):
 		ret = []
 		if classes == None:
-    		return osFamily
-		for i in osFamily:
+			return OperatingSystemFamilies
+		for i in OperatingSystemFamilies:
 			if i.osclass == classes:
 				ret.append(i)
 		return ret
