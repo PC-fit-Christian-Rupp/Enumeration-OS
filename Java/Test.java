@@ -2,7 +2,7 @@
 
 public class Test{
 	
-    private static int ClassesContent = 3;
+    private static int ClassesContent = /*CLASSCOUNT:START*/3/*CLASSCOUNT:END*/;
     private static String ClassesToParse = "Bla Embedded bla";
 
     private static int CountFamilyItems = 15;
@@ -41,21 +41,21 @@ public class Test{
         PrintLine();
 
         System.out.println("Test Family data!");
-        if (TestOperatingSystemFamily(CountFamilyItems)) {System.out.println("Family Test!\t\t\t\t\tFINISHED");}
+        if (TestOperatingSystemFamilies(CountFamilyItems)) {System.out.println("Family Test!\t\t\t\t\tFINISHED");}
         else {System.out.println("Family Test!\t\t\t\t\tFAILED");}
-        if (TestOperatingSystemFamilyGetAllFamiliesToClass(OperatingSystemClasses.DESKTOP, CountDesktopFamilies)) {
+        if (TestOperatingSystemFamiliesGetAllFamiliesToClass(OperatingSystemClasses.DESKTOP, CountDesktopFamilies)) {
             System.out.println("Get All Desktop Families Test!\t\t\tFINISHED");
         }
         else {System.out.println("Get All Desktop Test!\t\t\tFAILED");}
-        if (TestOperatingSystemFamilyGetAllFamiliesToClass(OperatingSystemClasses.SERVER, CountServerFamilies)) {
+        if (TestOperatingSystemFamiliesGetAllFamiliesToClass(OperatingSystemClasses.SERVER, CountServerFamilies)) {
             System.out.println("Get All SERVER Families Test!\t\t\tFINISHED");
         }
         else {System.out.println("Get All SERVER Test!\t\t\tFAILED");}
-        if (TestOperatingSystemFamilyGetAllFamiliesToClass(OperatingSystemClasses.EMBEDDED, CountEmbeddedFamilies)) {
+        if (TestOperatingSystemFamiliesGetAllFamiliesToClass(OperatingSystemClasses.EMBEDDED, CountEmbeddedFamilies)) {
             System.out.println("Get All Embedded Families Test!\t\t\tFINISHED");
         }
         else {System.out.println("Get All Embedded test!\t\t\tFAILED");}
-        if (TestOperatingSystemFamilyParse(FamilyToParse, FamilyName)) {
+        if (TestOperatingSystemFamiliesParse(FamilyToParse, FamilyName)) {
             System.out.println("Family Parse Test!\t\t\t\tFINISHED");
         }
         else {System.out.println("Family Parse Test!\t\t\t\tFAILED");}
@@ -81,15 +81,15 @@ public class Test{
             System.out.println("Embedded Operating System Test!\t\t\tFINISHED");
         }
         else {System.out.println("Embedded Operating System Test!\t\t\tFAILED");}
-        if (TestOperatingSystemsGetAllOperatingSystemsToFamily(OperatingSystemFamily.WINDOWS, CountWindowsSystems)) {
+        if (TestOperatingSystemsGetAllOperatingSystemsToFamily(OperatingSystemFamilies.WINDOWS, CountWindowsSystems)) {
             System.out.println("Windows Operating System Test!\t\t\tFINISHED");
         }
         else{System.out.println("Windows Operating System Test!\t\t\tFAILED");}
-        if (TestOperatingSystemsGetAllOperatingSystemsToFamily(OperatingSystemFamily.WINDOWSSERVER, CountWindowsServerSystems)) {
+        if (TestOperatingSystemsGetAllOperatingSystemsToFamily(OperatingSystemFamilies.WINDOWSSERVER, CountWindowsServerSystems)) {
             System.out.println("Windows Server Operating System Test!\t\tFINISHED");
         }
         else{System.out.println("Windows Server Operating System Test!\t\tFAILED");}
-        if (TestOperatingSystemsGetAllOperatingSystemsToFamily(OperatingSystemFamily.UBUNTU, CountUbuntuSystems)) {
+        if (TestOperatingSystemsGetAllOperatingSystemsToFamily(OperatingSystemFamilies.UBUNTU, CountUbuntuSystems)) {
             System.out.println("Ubuntu Operating System Test!\t\t\tFINISHED");
         }
         else{System.out.println("Ubuntu Operating System Test!\t\t\tFAILED");}
@@ -127,19 +127,19 @@ public class Test{
         return ((oSC.parse(StringToParse)).GetNumericValue() == Value);
     }
 
-    public static Boolean TestOperatingSystemFamily(int CountItems)
+    public static Boolean TestOperatingSystemFamilies(int CountItems)
     {
-        return (OperatingSystemFamily.values().length == CountItems);
+        return (OperatingSystemFamilies.values().length == CountItems);
     }
 
-    public static Boolean TestOperatingSystemFamilyGetAllFamiliesToClass(OperatingSystemClasses oClass, int CountItems){
-        OperatingSystemFamily oSF = OperatingSystemFamily.WINDOWS;
+    public static Boolean TestOperatingSystemFamiliesGetAllFamiliesToClass(OperatingSystemClasses oClass, int CountItems){
+        OperatingSystemFamilies oSF = OperatingSystemFamilies.WINDOWS;
         return (oSF.GetAllFamiliesToClass(oClass).size() == CountItems);
     }
 
-    public static Boolean TestOperatingSystemFamilyParse(String StringToParse, String familyName)
+    public static Boolean TestOperatingSystemFamiliesParse(String StringToParse, String familyName)
     {
-        OperatingSystemFamily oSF = OperatingSystemFamily.WINDOWS;
+        OperatingSystemFamilies oSF = OperatingSystemFamilies.WINDOWS;
         return (oSF.parse(StringToParse).getFamilyName() == familyName);
     }
 
@@ -157,7 +157,7 @@ public class Test{
         return (os.GetAllOperatingSystemsToClass(oClass).size() == CountItems);
     }
 
-    public static Boolean TestOperatingSystemsGetAllOperatingSystemsToFamily(OperatingSystemFamily oFamily, int CountItems){
+    public static Boolean TestOperatingSystemsGetAllOperatingSystemsToFamily(OperatingSystemFamilies oFamily, int CountItems){
         OperatingSystems os = OperatingSystems.CHEETAH;
         return (os.GetAllOperatingSystemsToFamily(oFamily).size() == CountItems);
     }

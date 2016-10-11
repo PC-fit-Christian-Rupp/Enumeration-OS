@@ -1,7 +1,7 @@
 //package EnumerationOperatingSystem;
 import java.util.*;
 
-public enum OperatingSystemFamily{
+public enum OperatingSystemFamilies{
     
     WINDOWS ("WINDOWS", OperatingSystemClasses.DESKTOP),
 	WINDOWSSERVER ("WINDOWS SERVER", OperatingSystemClasses.SERVER),
@@ -22,23 +22,23 @@ public enum OperatingSystemFamily{
     private String familyName;
     private OperatingSystemClasses oClasses;
 
-    OperatingSystemFamily(String familyName, OperatingSystemClasses oClasses){
+    OperatingSystemFamilies(String familyName, OperatingSystemClasses oClasses){
         this.familyName = familyName;
         this.oClasses = oClasses;
     }
 
-    public List<OperatingSystemFamily> GetAllFamiliesToClass(OperatingSystemClasses oClassToSearch){
-        List<OperatingSystemFamily> oReturnList = new ArrayList<OperatingSystemFamily>();
-        for (OperatingSystemFamily OSF: OperatingSystemFamily.values())
+    public List<OperatingSystemFamilies> GetAllFamiliesToClass(OperatingSystemClasses oClassToSearch){
+        List<OperatingSystemFamilies> oReturnList = new ArrayList<OperatingSystemFamilies>();
+        for (OperatingSystemFamilies OSF: OperatingSystemFamilies.values())
         {
             if (OSF.GetOClasses() == oClassToSearch){oReturnList.add(OSF);}
         }
         return oReturnList;
     }
 
-    public OperatingSystemFamily parse(String stringToParse){
-        List<OperatingSystemFamily> oList = GetAllFamiliesToClass(OperatingSystemClasses.DESKTOP.parse(stringToParse));
-        for (OperatingSystemFamily oItem:oList)
+    public OperatingSystemFamilies parse(String stringToParse){
+        List<OperatingSystemFamilies> oList = GetAllFamiliesToClass(OperatingSystemClasses.DESKTOP.parse(stringToParse));
+        for (OperatingSystemFamilies oItem:oList)
         {
             int partsOfStringFound = 0;
             for (String part:oItem.getFamilyName().split(" "))

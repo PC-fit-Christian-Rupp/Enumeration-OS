@@ -1,24 +1,24 @@
 from enum import Enum
-import osClasses
+import OperatingSystemClasses
 import re
 
 class osFamily(Enum):
 
-	WINDOWS = ("WINDOWS", osClasses.osClasses.DESKTOP)
-	WINDOWSSERVER = ("WINDOWS SERVER", osClasses.osClasses.SERVER)
-	WINDOWSMOBILE = ("WINDOWS Mobile", osClasses.osClasses.EMBEDDED)
-	WINDOWSPHONE = ("WINDOWS Phone", osClasses.osClasses.EMBEDDED)
-	WINDOWSTENMOBILE = ("WINDOWS 10 Mobile", osClasses.osClasses.EMBEDDED)
-	UBUNTU = ("Ubuntu", osClasses.osClasses.DESKTOP)
-	UBUNTUSERVER = ("Ubuntu Server", osClasses.osClasses.SERVER)
-	LINUX = ("Linux", osClasses.osClasses.DESKTOP)
-	LINUXSERVER =  ("Linux Server", osClasses.osClasses.SERVER)
-	MAC = ("OS X", osClasses.osClasses.DESKTOP)
-	MACSERVER = ("OS X Server", osClasses.osClasses.SERVER)
-	IOS = ("iOS", osClasses.osClasses.EMBEDDED)
-	TVOS = ("tvOS", osClasses.osClasses.EMBEDDED)
-	WATCHOS = ("watchOS", osClasses.osClasses.EMBEDDED)
-	ANDROID = ("Android", osClasses.osClasses.EMBEDDED)
+	WINDOWS = ("WINDOWS", OperatingSystemClasses.OperatingSystemClasses.DESKTOP)
+	WINDOWSSERVER = ("WINDOWS SERVER", OperatingSystemClasses.OperatingSystemClasses.SERVER)
+	WINDOWSMOBILE = ("WINDOWS Mobile", OperatingSystemClasses.OperatingSystemClasses.EMBEDDED)
+	WINDOWSPHONE = ("WINDOWS Phone", OperatingSystemClasses.OperatingSystemClasses.EMBEDDED)
+	WINDOWSTENMOBILE = ("WINDOWS 10 Mobile", OperatingSystemClasses.OperatingSystemClasses.EMBEDDED)
+	UBUNTU = ("Ubuntu", OperatingSystemClasses.OperatingSystemClasses.DESKTOP)
+	UBUNTUSERVER = ("Ubuntu Server", OperatingSystemClasses.OperatingSystemClasses.SERVER)
+	LINUX = ("Linux", OperatingSystemClasses.OperatingSystemClasses.DESKTOP)
+	LINUXSERVER =  ("Linux Server", OperatingSystemClasses.OperatingSystemClasses.SERVER)
+	MAC = ("OS X", OperatingSystemClasses.OperatingSystemClasses.DESKTOP)
+	MACSERVER = ("OS X Server", OperatingSystemClasses.OperatingSystemClasses.SERVER)
+	IOS = ("iOS", OperatingSystemClasses.OperatingSystemClasses.EMBEDDED)
+	TVOS = ("tvOS", OperatingSystemClasses.OperatingSystemClasses.EMBEDDED)
+	WATCHOS = ("watchOS", OperatingSystemClasses.OperatingSystemClasses.EMBEDDED)
+	ANDROID = ("Android", OperatingSystemClasses.OperatingSystemClasses.EMBEDDED)
 
 	def __init__(self, family, osClass):
 		self.osclass = osClass
@@ -34,7 +34,7 @@ class osFamily(Enum):
 		return ret
 
 	def parse(self, string):
-		lst = self.getAllClasses(osClasses.osClasses.DESKTOP.parse(string))
+		lst = self.getAllClasses(OperatingSystemClasses.OperatingSystemClasses.DESKTOP.parse(string))
 		for i in lst:
 			a = 0
 			lst2 = i.family.split(' ')
