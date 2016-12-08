@@ -34,14 +34,21 @@ class OperatingSystemFamilies(Enum):
 		return ret
 
 	def parse(self, string):
-		lst = self.getAllClasses(OperatingSystemClasses.OperatingSystemClasses.DESKTOP.parse(string))
+    	oClassInStr = OperatingSystemClasses.OperatingSystemClasses.DESKTOP.parse(string)
+		lst = self.getAllClasses(oClassInStr)
+		#lst = selfw.getAllClasses(OperatingSystemClasses.OperatingSystemClasses.DESKTOP.parse(string))
+		iLengthOfObjectName = 0 
 		for i in lst:
-			a = 0
-			lst2 = i.family.split(' ')
-			for j in lst2:
-				if (string.lower()).find(j.lower()) >= 0:
-					a += 1
-			if a == len(lst2):
-				return i
+    		if len(i.family) > 0:
+    			if (string.lower().find(i.family.lower())) >= 0:
+    				oFamilyFound = i
+					iLengthOfObjectName = len(i.family)
+			#a = 0
+			#lst2 = i.family.split(' ')
+			#for j in lst2:
+			#	if (string.lower()).find(j.lower()) >= 0:
+			#		a += 1
+			#if a == len(lst2):
+			#	return i
 
 

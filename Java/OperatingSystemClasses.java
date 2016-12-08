@@ -1,9 +1,12 @@
 //package EnumerationOperatingSystem;
 
 public enum OperatingSystemClasses {
+
+    //CONTENT
     DESKTOP(1),
     SERVER(2),
     EMBEDDED(3);
+    //CONTENT
 
     private int numericValue;
 
